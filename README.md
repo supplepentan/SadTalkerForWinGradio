@@ -66,4 +66,4 @@ Access to http://127.0.0.1:7860 .
 
 ## Acknowledgements
 
-This code is built on [Vid2DensePose](https://github.com/Flode-Labs/vid2densepose), thank for the authors for sharing their codes.
+This code is built on [SadTalker](https://github.com/OpenTalker/SadTalker), thank for the authors for sharing their codes.
