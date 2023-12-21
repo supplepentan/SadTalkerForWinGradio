@@ -172,3 +172,8 @@ checkpoints
 
 # Mac
 .DS_Store
+
+
+# Windows
+venv/
+usage.txt
