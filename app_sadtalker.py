@@ -163,22 +163,3 @@ if __name__ == "__main__":
     demo = sadtalker_demo()
     demo.queue()
     demo.launch()
-
-"""
-with gr.Blocks(analytics_enabled=False) as sadtalker_interface:
-    gr.Markdown("<div align='center'> <h2> 😭 SadTalker: Learning Realistic 3D Motion Coefficients for Stylized Audio-Driven Single Image Talking Face Animation (CVPR 2023) </span> </h2> \
-                <a style='font-size:18px;color: #efefef' href='https://arxiv.org/abs/2211.12194'>Arxiv</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
-                <a style='font-size:18px;color: #efefef' href='https://sadtalker.github.io'>Homepage</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
-                 <a style='font-size:18px;color: #efefef' href='https://github.com/Winfredy/SadTalker'> Github </div>")
-    
-    with gr.Row():
-        with gr.Column(variant='panel'):
-            # ここに関連するコードを配置
-            pass
-
-        with gr.Column(variant='panel'):
-            # ここに関連するコードを配置
-            pass
-
-    # その他のコード
-"""
