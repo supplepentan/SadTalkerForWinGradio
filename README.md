@@ -59,7 +59,7 @@ python scripts/download_models.py
 ## Run the Gradio
 
 ```bash
-python launcher.py
+python app.py
 ```
 
 Access to http://127.0.0.1:7860 .
