@@ -1,23 +1,15 @@
 import torch, uuid
 import os, sys, shutil
+import time
+import random
+import string
+from pydub import AudioSegment
 from src.utils.preprocess import CropAndExtract
 from src.test_audio2coeff import Audio2Coeff
 from src.facerender.animate import AnimateFromCoeff
 from src.generate_batch import get_data
 from src.generate_facerender_batch import get_facerender_data
-
 from src.utils.init_path import init_path
-
-from pydub import AudioSegment
-
-import time
-import random
-import string
-
-
-def mp3_to_wav(mp3_filename, wav_filename, frame_rate):
-    mp3_file = AudioSegment.from_file(file=mp3_filename)
-    mp3_file.set_frame_rate(frame_rate).export(wav_filename, format="wav")
 
 
 class SadTalker:
@@ -35,6 +27,10 @@ class SadTalker:
 
         self.checkpoint_path = checkpoint_path
         self.config_path = config_path
+
+    def mp3_to_wav(mp3_filename, wav_filename, frame_rate):
+        mp3_file = AudioSegment.from_file(file=mp3_filename)
+        mp3_file.set_frame_rate(frame_rate).export(wav_filename, format="wav")
 
     def test(
         self,
@@ -86,7 +82,7 @@ class SadTalker:
 
             #### mp3 to wav
             if ".mp3" in audio_path:
-                mp3_to_wav(driven_audio, audio_path.replace(".mp3", ".wav"), 16000)
+                self.mp3_to_wav(driven_audio, audio_path.replace(".mp3", ".wav"), 16000)
                 audio_path = audio_path.replace(".mp3", ".wav")
             else:
                 shutil.move(driven_audio, input_dir)
@@ -95,7 +91,6 @@ class SadTalker:
             audio_path = os.path.join(
                 input_dir, "idlemode_" + str(length_of_audio) + ".wav"
             )  ## generate audio from this new audio_path
-            from pydub import AudioSegment
 
             one_sec_segment = AudioSegment.silent(
                 duration=1000 * length_of_audio
