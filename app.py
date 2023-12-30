@@ -37,26 +37,6 @@ with app:
                 with gr.TabItem("Upload OR TTS"):
                     with gr.Column(variant="panel"):
                         driven_audio = gr.Audio(label="Input audio", type="filepath")
-                    if sys.platform != "win32" and not in_webui:
-                        from src.utils.text2speech import TTSTalker
-
-                        tts_talker = TTSTalker()
-                        with gr.Column(variant="panel"):
-                            input_text = gr.Textbox(
-                                label="Generating audio from text",
-                                lines=5,
-                                placeholder="please enter some text here, we genreate the audio from text using @Coqui.ai TTS.",
-                            )
-                            tts = gr.Button(
-                                "Generate audio",
-                                elem_id="sadtalker_audio_generate",
-                                variant="primary",
-                            )
-                            tts.click(
-                                fn=tts_talker.test,
-                                inputs=[input_text],
-                                outputs=[driven_audio],
-                            )
         with gr.Column(variant="panel"):
             with gr.Tabs(elem_id="sadtalker_genearted"):
                 gen_video = gr.Video(label="Generated video", format="mp4")
