@@ -1,5 +1,5 @@
 import gradio as gr
-from utils.gradio_demo import SadTalker
+from .utils.gradio_demo import SadTalker
 
 checkpoint_path = "checkpoints"
 config_path = "config"
