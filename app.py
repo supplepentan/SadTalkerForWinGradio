@@ -1,25 +1,10 @@
-import os, sys
 import gradio as gr
 from src.gradio_demo import SadTalker
-
-
-def toggle_audio_file(choice):
-    if choice == False:
-        return gr.update(visible=True), gr.update(visible=False)
-    else:
-        return gr.update(visible=False), gr.update(visible=True)
-
-
-def ref_video_fn(path_of_ref_video):
-    if path_of_ref_video is not None:
-        return gr.update(value=True)
-    else:
-        return gr.update(value=False)
-
 
 checkpoint_path = "checkpoints"
 config_path = "src/config"
 sad_talker = SadTalker(checkpoint_path, config_path, lazy_load=True)
+
 app = gr.Blocks(analytics_enabled=False)
 with app:
     with gr.Row():
