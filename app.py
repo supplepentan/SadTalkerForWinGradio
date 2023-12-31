@@ -1,8 +1,10 @@
 import gradio as gr
-from .utils.gradio_demo import SadTalker
+import os
+from utils.gradio_demo import SadTalker
 
-checkpoint_path = "checkpoints"
-config_path = "config"
+current_directory = os.path.dirname(os.path.abspath(__file__))
+checkpoint_path = os.path.join(current_directory, "checkpoints")
+config_path = os.path.join(current_directory, "config")
 sad_talker = SadTalker(checkpoint_path, config_path, lazy_load=True)
 
 app = gr.Blocks(analytics_enabled=False)
