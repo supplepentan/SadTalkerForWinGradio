@@ -53,7 +53,7 @@ python -m pip install torch torchvision --index-url https://download.pytorch.org
 ### Download Models
 
 ```bash
-python scripts/download_models.py
+python utils/download_models.py
 ```
 
 ## Run the Gradio
