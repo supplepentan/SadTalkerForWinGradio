@@ -1,6 +1,6 @@
 import gradio as gr
 import os
-from utils.gradio_demo import SadTalker
+from utils.main import SadTalker
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 checkpoint_path = os.path.join(current_directory, "checkpoints")
