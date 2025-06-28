@@ -30,6 +30,7 @@ class SadTalker:
         self.checkpoint_path = checkpoint_path
         self.config_path = config_path
 
+    @staticmethod
     def mp3_to_wav(mp3_filename, wav_filename, frame_rate):
         mp3_file = AudioSegment.from_file(file=mp3_filename)
         mp3_file.set_frame_rate(frame_rate).export(wav_filename, format="wav")
@@ -76,8 +77,10 @@ class SadTalker:
         os.makedirs(input_dir, exist_ok=True)
 
         print(source_image)
+        # Gradioが作成した一時ファイルを移動(move)するのではなく、コピー(copy)して使用します。
+        # これにより、Gradioのファイル管理との競合を防ぎます。
         pic_path = os.path.join(input_dir, os.path.basename(source_image))
-        shutil.move(source_image, input_dir)
+        shutil.copy(source_image, pic_path)
 
         if driven_audio is not None and os.path.isfile(driven_audio):
             audio_path = os.path.join(input_dir, os.path.basename(driven_audio))
@@ -87,7 +90,7 @@ class SadTalker:
                 self.mp3_to_wav(driven_audio, audio_path.replace(".mp3", ".wav"), 16000)
                 audio_path = audio_path.replace(".mp3", ".wav")
             else:
-                shutil.move(driven_audio, input_dir)
+                shutil.copy(driven_audio, audio_path)
 
         elif use_idle_mode:
             audio_path = os.path.join(

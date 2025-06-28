@@ -67,3 +67,28 @@ Access to http://127.0.0.1:7860 .
 ## Acknowledgements
 
 This code is built on [SadTalker](https://github.com/OpenTalker/SadTalker), thank for the authors for sharing their codes.
+
+## Appendix: Core Dependencies
+
+numpy==1.23.4
+face_alignment==1.3.5
+imageio==2.19.3
+imageio-ffmpeg==0.4.7
+librosa==0.9.2
+numba
+resampy==0.3.1
+pydub==0.25.1
+scipy==1.10.1
+kornia==0.6.8
+tqdm
+yacs==0.1.8
+pyyaml
+joblib==1.1.0
+scikit-image==0.19.3
+basicsr==1.4.2
+facexlib==0.3.0
+gradio==5.35.0
+gfpgan
+av
+safetensors
+requests
